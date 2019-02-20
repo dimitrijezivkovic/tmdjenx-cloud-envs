@@ -1,0 +1,22 @@
+jenkins:
+  Servers:
+    Global:
+      EnvVars:
+        DOCKER_REGISTRY: "docker.io"
+            
+PipelineSecrets:
+  DockerConfig: |-
+      {
+        "auths": {
+          "https://index.docker.io/v1/": {
+            "auth": "ZGltaXRyaWpleml2a292aWM6amFzYW10dTE0MDU="
+          }
+        },
+        "HttpHeaders": {
+          "User-Agent": "Docker-Client/18.09.2 (darwin)"
+        }
+      }
+
+nexus:
+  persistence:
+    size: 5Gi
